@@ -1,0 +1,6 @@
+type,name,x,y,width,height
+pirate_ship,Ocean Swinger,20,30,15,10
+ferris_wheel,Mega Wheel,55,25,12,12
+food_vendor,Burger Stand,20,70,6,6
+sideshow,Balloon Pop,50,70,8,8
+barrier,Central Fountain,40,50,15,8

@@ -1,0 +1,13 @@
+type,name,x,y,width,height
+pirate_ship,Pirate Adventure,15,15,15,10
+ferris_wheel,Sky Wheel,45,15,12,12
+pirate_ship,Skull Swinger,15,55,15,10
+food_vendor,Pizza Palace,75,20,6,6
+food_vendor,Ice Cream Cart,75,40,6,6
+sideshow,Ring Toss,45,55,8,8
+sideshow,Duck Shoot,60,55,8,8
+ferris_wheel,Giant Wheel,75,65,12,12
+barrier,Park Boundary North,0,95,100,5
+barrier,Park Boundary South,0,0,100,3
+barrier,Park Boundary West,0,0,3,100
+barrier,Park Boundary East,97,0,3,100
