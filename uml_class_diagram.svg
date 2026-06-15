@@ -1,0 +1,214 @@
+<svg viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="700" y="30" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">
+    Adventure Time - UML Class Diagram
+  </text>
+  
+  <!-- ThemePark Class -->
+  <rect x="50" y="60" width="300" height="280" fill="#E8F4F8" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="50" y="60" width="300" height="40" fill="#3498DB" stroke="#2C3E50" stroke-width="2"/>
+  <text x="200" y="85" font-size="16" font-weight="bold" text-anchor="middle" fill="white">ThemePark</text>
+  
+  <!-- ThemePark Attributes -->
+  <text x="60" y="115" font-size="12" fill="#333">- width: float</text>
+  <text x="60" y="130" font-size="12" fill="#333">- height: float</text>
+  <text x="60" y="145" font-size="12" fill="#333">- attractions: list</text>
+  <text x="60" y="160" font-size="12" fill="#333">- patrons: list</text>
+  <text x="60" y="175" font-size="12" fill="#333">- barriers: list</text>
+  <text x="60" y="190" font-size="12" fill="#333">- entrance_x: float</text>
+  <text x="60" y="205" font-size="12" fill="#333">- entrance_y: float</text>
+  <text x="60" y="220" font-size="12" fill="#333">- timestep: int</text>
+  <text x="60" y="235" font-size="12" fill="#333">- spawn_rate: int</text>
+  <text x="60" y="250" font-size="12" fill="#333">- patron_count: int</text>
+  
+  <line x1="50" y1="255" x2="350" y2="255" stroke="#2C3E50" stroke-width="1"/>
+  
+  <!-- ThemePark Methods -->
+  <text x="60" y="270" font-size="12" fill="#333">+ add_attraction(attraction)</text>
+  <text x="60" y="285" font-size="12" fill="#333">+ add_barrier(x, y, w, h)</text>
+  <text x="60" y="300" font-size="12" fill="#333">+ spawn_patron()</text>
+  <text x="60" y="315" font-size="12" fill="#333">+ step_change()</text>
+  <text x="60" y="330" font-size="12" fill="#333">+ plot_park(ax)</text>
+  
+  <!-- Attraction Base Class -->
+  <rect x="550" y="60" width="300" height="340" fill="#FFF4E6" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="550" y="60" width="300" height="40" fill="#E67E22" stroke="#2C3E50" stroke-width="2"/>
+  <text x="700" y="85" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Attraction</text>
+  <text x="820" y="85" font-size="12" font-style="italic" fill="white">(abstract)</text>
+  
+  <!-- Attraction Attributes -->
+  <text x="560" y="115" font-size="12" fill="#333">- name: str</text>
+  <text x="560" y="130" font-size="12" fill="#333">- x: float</text>
+  <text x="560" y="145" font-size="12" fill="#333">- y: float</text>
+  <text x="560" y="160" font-size="12" fill="#333">- width: float</text>
+  <text x="560" y="175" font-size="12" fill="#333">- height: float</text>
+  <text x="560" y="190" font-size="12" fill="#333">- capacity: int</text>
+  <text x="560" y="205" font-size="12" fill="#333">- duration: int</text>
+  <text x="560" y="220" font-size="12" fill="#333">- state: str</text>
+  <text x="560" y="235" font-size="12" fill="#333">- queue: deque</text>
+  <text x="560" y="250" font-size="12" fill="#333">- riders: list</text>
+  <text x="560" y="265" font-size="12" fill="#333">- time_remaining: int</text>
+  
+  <line x1="550" y1="270" x2="850" y2="270" stroke="#2C3E50" stroke-width="1"/>
+  
+  <!-- Attraction Methods -->
+  <text x="560" y="285" font-size="12" fill="#333">+ get_bounding_box(): tuple</text>
+  <text x="560" y="300" font-size="12" fill="#333">+ overlaps(other): bool</text>
+  <text x="560" y="315" font-size="12" fill="#333">+ add_to_queue(patron)</text>
+  <text x="560" y="330" font-size="12" fill="#333">+ can_start_ride(): bool</text>
+  <text x="560" y="345" font-size="12" fill="#333">+ start_ride()</text>
+  <text x="560" y="360" font-size="12" fill="#333">+ step_change()</text>
+  <text x="560" y="375" font-size="12" fill="#333">+ finish_ride()</text>
+  <text x="560" y="390" font-size="12" fill="#333">+ plot_me(ax)</text>
+  
+  <!-- Patron Class -->
+  <rect x="1050" y="60" width="300" height="280" fill="#E8F5E9" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="1050" y="60" width="300" height="40" fill="#27AE60" stroke="#2C3E50" stroke-width="2"/>
+  <text x="1200" y="85" font-size="16" font-weight="bold" text-anchor="middle" fill="white">Patron</text>
+  
+  <!-- Patron Attributes -->
+  <text x="1060" y="115" font-size="12" fill="#333">- name: str</text>
+  <text x="1060" y="130" font-size="12" fill="#333">- x: float</text>
+  <text x="1060" y="145" font-size="12" fill="#333">- y: float</text>
+  <text x="1060" y="160" font-size="12" fill="#333">- park_width: float</text>
+  <text x="1060" y="175" font-size="12" fill="#333">- park_height: float</text>
+  <text x="1060" y="190" font-size="12" fill="#333">- state: str</text>
+  <text x="1060" y="205" font-size="12" fill="#333">- current_attraction: Attraction</text>
+  <text x="1060" y="220" font-size="12" fill="#333">- target_attraction: Attraction</text>
+  <text x="1060" y="235" font-size="12" fill="#333">- color: str</text>
+  <text x="1060" y="250" font-size="12" fill="#333">- visits: int</text>
+  <text x="1060" y="265" font-size="12" fill="#333">- max_visits: int</text>
+  
+  <line x1="1050" y1="270" x2="1350" y2="270" stroke="#2C3E50" stroke-width="1"/>
+  
+  <!-- Patron Methods -->
+  <text x="1060" y="285" font-size="12" fill="#333">+ step_change(attractions, barriers)</text>
+  <text x="1060" y="300" font-size="12" fill="#333">+ find_new_target(attractions)</text>
+  <text x="1060" y="315" font-size="12" fill="#333">+ move_towards_target(barriers)</text>
+  <text x="1060" y="330" font-size="12" fill="#333">+ leave_park()</text>
+  
+  <!-- PirateShip Class -->
+  <rect x="400" y="480" width="200" height="140" fill="#FCE4EC" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="400" y="480" width="200" height="35" fill="#C2185B" stroke="#2C3E50" stroke-width="2"/>
+  <text x="500" y="502" font-size="14" font-weight="bold" text-anchor="middle" fill="white">PirateShip</text>
+  
+  <text x="410" y="530" font-size="11" fill="#333">- angle: float</text>
+  <text x="410" y="545" font-size="11" fill="#333">- direction: int</text>
+  <text x="410" y="560" font-size="11" fill="#333">- max_angle: float</text>
+  <line x1="400" y1="565" x2="600" y2="565" stroke="#2C3E50" stroke-width="1"/>
+  <text x="410" y="580" font-size="11" fill="#333">+ step_change()</text>
+  <text x="410" y="595" font-size="11" fill="#333">+ plot_me(ax)</text>
+  
+  <!-- FerrisWheel Class -->
+  <rect x="620" y="480" width="200" height="140" fill="#FCE4EC" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="620" y="480" width="200" height="35" fill="#C2185B" stroke="#2C3E50" stroke-width="2"/>
+  <text x="720" y="502" font-size="14" font-weight="bold" text-anchor="middle" fill="white">FerrisWheel</text>
+  
+  <text x="630" y="530" font-size="11" fill="#333">- rotation: float</text>
+  <line x1="620" y1="540" x2="820" y2="540" stroke="#2C3E50" stroke-width="1"/>
+  <text x="630" y="555" font-size="11" fill="#333">+ step_change()</text>
+  <text x="630" y="570" font-size="11" fill="#333">+ plot_me(ax)</text>
+  
+  <!-- FoodVendor Class -->
+  <rect x="400" y="640" width="200" height="100" fill="#FCE4EC" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="400" y="640" width="200" height="35" fill="#C2185B" stroke="#2C3E50" stroke-width="2"/>
+  <text x="500" y="662" font-size="14" font-weight="bold" text-anchor="middle" fill="white">FoodVendor</text>
+  
+  <line x1="400" y1="675" x2="600" y2="675" stroke="#2C3E50" stroke-width="1"/>
+  <text x="410" y="690" font-size="11" fill="#333">+ plot_me(ax)</text>
+  
+  <!-- SideshowGame Class -->
+  <rect x="620" y="640" width="200" height="100" fill="#FCE4EC" stroke="#2C3E50" stroke-width="2"/>
+  <rect x="620" y="640" width="200" height="35" fill="#C2185B" stroke="#2C3E50" stroke-width="2"/>
+  <text x="720" y="662" font-size="14" font-weight="bold" text-anchor="middle" fill="white">SideshowGame</text>
+  
+  <line x1="620" y1="675" x2="820" y2="675" stroke="#2C3E50" stroke-width="1"/>
+  <text x="630" y="690" font-size="11" fill="#333">+ plot_me(ax)</text>
+  
+  <!-- Relationships -->
+  
+  <!-- ThemePark aggregates Attractions (1 to many) -->
+  <line x1="350" y1="150" x2="550" y2="150" stroke="#2C3E50" stroke-width="2" marker-end="url(#diamond)"/>
+  <text x="420" y="140" font-size="11" fill="#333">1</text>
+  <text x="520" y="140" font-size="11" fill="#333">*</text>
+  <text x="430" y="170" font-size="10" fill="#666">contains</text>
+  
+  <!-- ThemePark aggregates Patrons (1 to many) -->
+  <path d="M 350 250 Q 700 350 1050 250" fill="none" stroke="#2C3E50" stroke-width="2" marker-end="url(#diamond)"/>
+  <text x="650" y="335" font-size="10" fill="#666">manages</text>
+  <text x="360" y="270" font-size="11" fill="#333">1</text>
+  <text x="1030" y="270" font-size="11" fill="#333">*</text>
+  
+  <!-- Patron associates with Attraction -->
+  <line x1="1050" y1="200" x2="850" y2="200" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="920" y="190" font-size="10" fill="#666">targets/queues for</text>
+  <text x="860" y="215" font-size="11" fill="#333">0..1</text>
+  <text x="1020" y="215" font-size="11" fill="#333">*</text>
+  
+  <!-- Inheritance: PirateShip extends Attraction -->
+  <line x1="500" y1="480" x2="600" y2="400" stroke="#2C3E50" stroke-width="2" marker-end="url(#triangle)"/>
+  
+  <!-- Inheritance: FerrisWheel extends Attraction -->
+  <line x1="720" y1="480" x2="700" y2="400" stroke="#2C3E50" stroke-width="2" marker-end="url(#triangle)"/>
+  
+  <!-- Inheritance: FoodVendor extends Attraction -->
+  <line x1="500" y1="640" x2="650" y2="400" stroke="#2C3E50" stroke-width="2" marker-end="url(#triangle)"/>
+  
+  <!-- Inheritance: SideshowGame extends Attraction -->
+  <line x1="720" y1="640" x2="750" y2="400" stroke="#2C3E50" stroke-width="2" marker-end="url(#triangle)"/>
+  
+  <!-- Attraction contains Patrons in queue/riders -->
+  <path d="M 850 300 Q 950 380 1050 300" fill="none" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="920" y="365" font-size="10" fill="#666">queue/riders</text>
+  <text x="860" y="315" font-size="11" fill="#333">1</text>
+  <text x="1020" y="315" font-size="11" fill="#333">*</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="800" width="350" height="180" fill="#F8F9FA" stroke="#2C3E50" stroke-width="2"/>
+  <text x="225" y="825" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Legend</text>
+  
+  <line x1="70" y1="845" x2="120" y2="845" stroke="#2C3E50" stroke-width="2" marker-end="url(#triangle)"/>
+  <text x="130" y="850" font-size="12" fill="#333">Inheritance (extends)</text>
+  
+  <line x1="70" y1="870" x2="120" y2="870" stroke="#2C3E50" stroke-width="2" marker-end="url(#diamond)"/>
+  <text x="130" y="875" font-size="12" fill="#333">Aggregation (has-a/contains)</text>
+  
+  <line x1="70" y1="895" x2="120" y2="895" stroke="#2C3E50" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="130" y="900" font-size="12" fill="#333">Association (uses/references)</text>
+  
+  <line x1="70" y1="920" x2="120" y2="920" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="130" y="925" font-size="12" fill="#333">Dependency (temporary reference)</text>
+  
+  <text x="70" y="950" font-size="11" fill="#666">* = zero or many (0..*)</text>
+  <text x="70" y="965" font-size="11" fill="#666">1 = exactly one</text>
+  
+  <!-- Notes -->
+  <rect x="450" y="800" width="500" height="180" fill="#FFFDE7" stroke="#F57C00" stroke-width="2"/>
+  <text x="700" y="825" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Key Relationships</text>
+  
+  <text x="460" y="850" font-size="11" fill="#333">• ThemePark manages multiple Attractions and Patrons</text>
+  <text x="460" y="870" font-size="11" fill="#333">• All attraction types inherit from Attraction base class</text>
+  <text x="460" y="890" font-size="11" fill="#333">• Patrons target and queue for Attractions</text>
+  <text x="460" y="910" font-size="11" fill="#333">• Attractions maintain queues and riders (Patrons)</text>
+  <text x="460" y="930" font-size="11" fill="#333">• Patron states: roaming → queuing → riding → roaming</text>
+  <text x="460" y="950" font-size="11" fill="#333">• Attraction states: idle → running → idle</text>
+  <text x="460" y="970" font-size="11" fill="#333">• Uses collections.deque for efficient queue management</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <!-- Inheritance triangle -->
+    <marker id="triangle" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0,0 0,6 9,3" fill="white" stroke="#2C3E50" stroke-width="2"/>
+    </marker>
+    
+    <!-- Association arrow -->
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0,0 0,6 9,3" fill="#2C3E50"/>
+    </marker>
+    
+    <!-- Aggregation diamond -->
+    <marker id="diamond" markerWidth="12" markerHeight="12" refX="11" refY="4" orient="auto">
+      <polygon points="0,4 4,0 8,4 4,8" fill="white" stroke="#2C3E50" stroke-width="2"/>
+    </marker>
+  </defs>
+</svg>
